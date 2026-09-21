@@ -1,4 +1,4 @@
-/* ===== Colours taken from the power logo ===== */
+
 :root {
   --cream: #FAE5A0;        /* logo circle fill */
   --cream-light: #FFF8E1;  /* page background */
@@ -212,3 +212,113 @@ tbody tr:last-child td { border-bottom: 0; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* ===================================================================
+   T03 additions: data story layout
+   =================================================================== */
+
+/* Key findings on the Home page */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+  margin: 0 0 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+.stats li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--cream);
+  border: 3px solid var(--brown);
+  border-radius: var(--radius);
+}
+.stat-number {
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--brown);
+}
+.stat-label { font-size: 0.95rem; line-height: 1.4; }
+
+/* Lists inside panels */
+.steps { margin: 0; padding-left: 1.4rem; display: grid; gap: 0.4rem; }
+.plain { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.4rem; }
+
+/* One finding = text beside its chart */
+.story {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin: 0 0 3rem;
+  padding-top: 2rem;
+  border-top: 3px solid var(--cream);
+}
+.story-number {
+  display: inline-grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+  color: var(--brown-dark);
+  background: var(--orange);
+  border: 3px solid var(--brown);
+  border-radius: 50%;
+}
+.story-text h2 { font-size: 1.6rem; }
+
+figure { margin: 0; }
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border: 3px solid var(--brown);
+  border-radius: var(--radius);
+}
+figcaption { margin-top: 0.5rem; font-size: 0.9rem; color: var(--brown); }
+
+.figure-pair { display: grid; gap: 1.25rem; }
+
+.table-wrap + .note { margin-bottom: 3rem; }
+
+/* Closing advice */
+.callout {
+  padding: 1.75rem;
+  background: var(--cream);
+  border: 3px solid var(--brown);
+  border-left-width: 12px;
+  border-radius: var(--radius);
+}
+.callout h2 { margin-top: 0; }
+.callout ol { margin: 0; padding-left: 1.4rem; display: grid; gap: 0.6rem; max-width: 65ch; }
+
+@media (min-width: 60rem) {
+  .story { grid-template-columns: 1fr 1.5fr; gap: 2.5rem; align-items: start; }
+  .story:has(.figure-pair) { grid-template-columns: 1fr; }
+  .story:has(.figure-pair) .story-text { max-width: 65ch; }
+  .figure-pair { grid-template-columns: 1fr 1fr; }
+}
+
+/* Part 2: exploration questions */
+.part-heading {
+  margin: 4rem 0 0;
+  padding: 1.5rem;
+  background: var(--cream);
+  border: 3px solid var(--brown);
+  border-radius: var(--radius);
+}
+.part-heading h2 { margin-top: 0; }
+.part-heading p { margin-bottom: 0; }
+
+.question { margin-top: 2rem; }
+.story-number.q {
+  width: auto;
+  min-width: 2.4rem;
+  padding: 0 0.85rem;
+  border-radius: 999px;
+}
+.story-text h3 { font-size: 1.3rem; line-height: 1.25; color: var(--brown); margin: 0 0 0.6em; }
